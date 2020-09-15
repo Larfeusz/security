@@ -20,7 +20,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AppUser extends UserDetails {
+public class AppUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,9 @@ public class AppUser extends UserDetails {
     private String username;
     private String password;
     private String role;
+
+    public AppUser(String username, String password, String role) {
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
