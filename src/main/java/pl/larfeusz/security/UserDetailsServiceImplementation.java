@@ -6,6 +6,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.larfeusz.security.model.AppUser;
 import pl.larfeusz.security.repository.AppUserRepository;
@@ -25,9 +26,5 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
         return appUserRepository.findByUsername(s);
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void get(){
-        AppUser appUser = new AppUser("Zwykły","Zahasłowany","USER");
-        appUserRepository.save(appUser);
-    }
+
 }
