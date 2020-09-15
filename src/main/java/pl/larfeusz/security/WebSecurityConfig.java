@@ -19,9 +19,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // zabezpi
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser(new User("Piotr", passwordEncoder().encode("Kalafior123"), Collections.singleton(new SimpleGrantedAuthority("user"))));
+//        auth.inMemoryAuthentication()
+//                .withUser(new User("Piotr", passwordEncoder().encode("Kalafior123"), Collections.singleton(new SimpleGrantedAuthority("user"))));
+    auth.userDetailsService()
     }
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
